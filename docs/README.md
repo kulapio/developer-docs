@@ -1,4 +1,4 @@
-# Welcome to KULAP Developer
+# Welcome KULAPers
 
 [[toc]]
 
@@ -108,7 +108,7 @@ const account = {
 const KULAP_CONTRACT_ADDRESS = '0x3833cf2972394d636b1C5b80d34FeE1F17175b77'
 const provider = ethers.providers.getDefaultProvider('rinkeby') // you can switch to mainnet when ready
 const accessKey = 'xxx'
-const abi = [{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"srcAsset","type":"address"},{"indexed":false,"internalType":"uint256","name":"srcAmount","type":"uint256"},{"indexed":true,"internalType":"address","name":"destAsset","type":"address"},{"indexed":false,"internalType":"uint256","name":"destAmount","type":"uint256"},{"indexed":true,"internalType":"address","name":"trader","type":"address"},{"indexed":false,"internalType":"uint256","name":"fee","type":"uint256"}],"name":"Trade","type":"event"},{"constant":true,"inputs":[{"internalType":"uint256","name":"tradingProxyIndex","type":"uint256"},{"internalType":"contract ERC20","name":"src","type":"address"},{"internalType":"contract ERC20","name":"dest","type":"address"},{"internalType":"uint256","name":"srcAmount","type":"uint256"},{"internalType":"uint256","name":"partnerIndex","type":"uint256"}],"name":"getDestinationReturnAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"uint256","name":"tradingProxyIndex","type":"uint256"},{"internalType":"contract ERC20","name":"src","type":"address"},{"internalType":"uint256","name":"srcAmount","type":"uint256"},{"internalType":"contract ERC20","name":"dest","type":"address"},{"internalType":"uint256","name":"minDestAmount","type":"uint256"},{"internalType":"uint256","name":"partnerIndex","type":"uint256"}],"name":"trade","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"}]
+const abi = ["function trade(uint256 tradingProxyIndex, address src, uint256 srcAmount, address dest, uint256 minDestAmount, uint256 partnerIndex) payable returns(uint256)"]
 const wallet = new ethers.Wallet(account.privateKey, provider)
 const kulapDex = new ethers.Contract(KULAP_CONTRACT_ADDRESS, abi, wallet)
 const bestRateApi = 'https://api.kulap.io/v1/api/rate/best-rate/toAmount'
@@ -123,7 +123,7 @@ async function main() {
     code: 'DAI',
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
   }
-  const fromAmount = '1000000000000000000' // 1 eth
+  const fromAmount = '10000000000000000' // 0.01 eth
   const result = await axios.get(bestRateApi, {
     params: {
       from: fromToken.code,
