@@ -123,12 +123,12 @@ async function main() {
     code: 'DAI',
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
   }
-  const fromAmount = '10000000000000000' // 0.01 eth
+  const srcAmount = '10000000000000000' // 0.01 eth
   const result = await axios.get(bestRateApi, {
     params: {
       from: fromToken.code,
       to: toToken.code,
-      fromAmount: fromAmount,
+      fromAmount: srcAmount,
       accessKey: accessKey
     }
   })
@@ -137,19 +137,20 @@ async function main() {
 
   const tradingProxyIndex = bestRate.FAST.trade.routes[0]
   const src = fromToken.address
-  const srcAmount = fromAmount
   const dest = toToken.address
   const minDestAmount = BigNumber.from(bestRate.FAST.trade.toAmount).mul('97').div('100').toString() // 3% slippage
   const partnerIndex = '0' // please provide your partner id, otherwise use 0
   console.table({tradingProxyIndex, src, srcAmount, dest, minDestAmount, partnerIndex})
   try {
+    const overrides = {value: srcAmount}
     const transaction = await kulapDex.trade(
       tradingProxyIndex,
       src,
       srcAmount,
       dest,
       minDestAmount,
-      partnerIndex
+      partnerIndex,
+      overrides
     )
     console.log({ transaction })
   } catch (error) {
