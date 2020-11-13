@@ -1,6 +1,6 @@
 module.exports = {
   title: 'KULAP Developer Portal',
-  description: 'Just playing around',
+  description: 'KULAP Developer APIs and DApps Documentation',
   themeConfig: {
     navbar: true
   }
