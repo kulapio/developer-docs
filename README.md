@@ -4,6 +4,11 @@ This repo is for open APIs & DApps integration for developers. Feel free to make
 # Read the doc
 - https://docs.kulap.io/
 
+## Prepare
+```
+npm i -g vuepress
+```
+
 ## Run
 ```
 npm run dev
