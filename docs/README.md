@@ -106,7 +106,7 @@ const account = {
   privateKey: '0x81874129a4c62bf828bb53a0c2d87786873dc8eab371bc6d9d8f831b301449da'
 }
 const KULAP_CONTRACT_ADDRESS = '0x3833cf2972394d636b1C5b80d34FeE1F17175b77'
-const provider = ethers.providers.getDefaultProvider('rinkeby') // you can switch to mainnet when ready
+const provider = ethers.providers.getDefaultProvider('kovan') // you can switch to mainnet when ready
 const accessKey = 'xxx'
 const abi = ["function trade(uint256 tradingProxyIndex, address src, uint256 srcAmount, address dest, uint256 minDestAmount, uint256 partnerIndex) payable returns(uint256)"]
 const wallet = new ethers.Wallet(account.privateKey, provider)
@@ -117,11 +117,11 @@ async function main() {
   // Fetch best rate from api
   const fromToken = {
     code: 'ETH',
-    address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
+    address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE' // default ETH address
   }
   const toToken = {
     code: 'DAI',
-    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F' //token address
   }
   const srcAmount = '10000000000000000' // 0.01 eth
   const result = await axios.get(bestRateApi, {
