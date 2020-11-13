@@ -3,7 +3,7 @@
 [[toc]]
 
 ## Overview
-![Overview](./overview.png)
+![Overview](./KulapOverviewIsomatic.png)
 
 # APIs
 
