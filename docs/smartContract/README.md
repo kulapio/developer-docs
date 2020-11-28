@@ -20,14 +20,16 @@ The solidity `KULAPDex.sol` contract acts as a single endpoint of the system and
 function trade(uint256 tradingProxyIndex, ERC20 src, uint256 srcAmount, ERC20 dest, uint256 minDestAmount, uint256 partnerIndex) → uint256
 ```
 
-| Parameter         | Type    | Description                 |
-|-------------------|---------|-----------------------------|
-| tradingProxyIndex | uint256 |   | 
-| src               | ERC20   |      |          
-| srcAmount         | uint256 |    | 
-| dest              | ERC20   |        | 
-| minDestAmount     | uint256 |          |
-| partnerIndex      | uint256 |           | 
+| Parameter         | Type    | Description                                |
+|-------------------|---------|--------------------------------------------|
+| tradingProxyIndex | uint256 | Given trading proxy ID from off-chain API  | 
+| src               | ERC20   | Source ERC20 token address*                 |          
+| srcAmount         | uint256 | Source ERC20 token amount in Wei           | 
+| dest              | ERC20   | Destination ERC20 token address*            | 
+| minDestAmount     | uint256 | Min. Destination ERC20 token amount in Wei |
+| partnerIndex      | uint256 | Partner ID (Default : 0)                   | 
+
+* 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE for native ETH 
 
 If the source token is ERC20 token, the user is required to call approve function to give an allowance to the `KULAPDex.sol` contract stats at the top of the section.
 
@@ -53,12 +55,14 @@ event Trade(address indexed srcAsset, uint256 srcAmount, address indexed destAss
 
 | Parameter   | Type     | Description                           |
 |-------------|----------|---------------------------------------|
-| srcAsset    | address  | Source ERC20 token address            | 
+| srcAsset    | address  | Source ERC20 token address*           | 
 | srcAmount   | uint256  | Source ERC20 token amount in Wei      | 
-| destAsset   | address  | Destination ERC20 token address       | 
+| destAsset   | address  | Destination ERC20 token address*      | 
 | destAmount  | uint256  | Destination ERC20 token amount in Wei |
 | trader      | address  | Adddess who executed the transaction  |
 | fee         | uint256  | Fee that deduced from the trade       | 
+
+* 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE for native ETH 
 
 ### AddedTradingProxy
 
