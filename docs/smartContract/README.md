@@ -4,8 +4,6 @@ The core logic is programmed into smart contracts that exist on the Blockchain a
 
 ## Addresses
 
-Below is where you can find smart contract addresses.
-
 | Contract Name | Address                                    | Network |
 |---------------|--------------------------------------------|---------|
 | KULAPDex      | 0x3833cf2972394d636b1C5b80d34FeE1F17175b77 | Mainnet |
