@@ -9,7 +9,7 @@ KULAP aims to accelerate programmatic buying and selling of digital assets, our 
 
 ## Quick Start
 
-The easiest way is to integrate DEX trading into your platform without maintenance works is to use SDK to access, allows your users to make the best trade from the DEX with the best rate.
+The easiest way to integrate DEX trading into your platform without maintenance works is to use SDK to access, allows your users to make the best trade from the DEX with the best rate.
 
 Please check out the SDK section for more details.
 
@@ -20,28 +20,23 @@ const srcToken = "DAI"
 const destToken = "LINK"
 const amountIn = "100000000000000000000" // 100 DAI in Wei unit
 
-const response = await kulapSDK.getRate(baseToken, pairToken, amountIn) // Get best rate from off-chain API
+const order = await kulapSDK.getRate(baseToken, pairToken, amountIn) // Get best rate from off-chain API
 
-const isApproved = await kulapSDK.validate(response) // Check allowance of DAI token to Kulap DEX smart contract is made
+const isApproved = await kulapSDK.validate(order) // Check allowance of DAI token to Kulap DEX smart contract is made
 
 if (!isApproved) {
-  await kulapSDK.approve(response) // Giving a permission to Kulap DEX smart contract, the rights to transfer DAI
+  await kulapSDK.approve(order) // Giving a permission to Kulap DEX smart contract, the rights to transfer DAI
 }
 
-await kulapSDK.trade(response) // Execute trade
+await kulapSDK.trade(order) // Execute trade
 
 ```
 ### Demo Dapp
 
 We've build the demo dapp that allows you to quickly look up quickly look up how first sample application is made.
 
-[https://pensive-thompson-5185d1.netlify.app](https://pensive-thompson-5185d1.netlify.app)
+[https://demo-sdk.kulap.io/](https://demo-sdk.kulap.io/)
 
 Source code :
 
 [https://github.com/pisuthd/kulap-demo-dapp](https://github.com/pisuthd/kulap-demo-dapp)
-
-
-
-
-
