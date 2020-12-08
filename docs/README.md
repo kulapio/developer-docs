@@ -15,7 +15,7 @@ Please check out the SDK section for more details.
 
 Example: Swap 100 DAI to LINK
 
-```
+```js
 const srcToken = "DAI"
 const destToken = "LINK"
 const amountIn = "100000000000000000000" // 100 DAI in Wei unit
