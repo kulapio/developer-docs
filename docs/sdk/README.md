@@ -50,7 +50,7 @@ This will help construct the order details from the pair and given amount that l
 ```
 const srcToken = "ETH"
 const destToken = "DAI"
-const amountIn = "1000000000000000000" // 1 ETH
+const amountIn = "1" // 1 ETH
 
 const order = await kulapSDK.getRate(baseToken, pairToken, amountIn)
 ```
@@ -72,7 +72,7 @@ const isValidated = await kulapSDK.validate(response) // given response when get
 or
 
 const fromSymbol = "DAI"
-const fromAmount = "100000000000000000000" // 100 DAI
+const fromAmount = "100" // 100 DAI
 const isValidated = await kulapSDK.validate({ fromSymbol, fromAmount })
 ```
 

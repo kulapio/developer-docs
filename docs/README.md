@@ -18,7 +18,7 @@ Example: Swap 100 DAI to LINK
 ```
 const srcToken = "DAI"
 const destToken = "LINK"
-const amountIn = "100000000000000000000" // 100 DAI in Wei unit
+const amountIn = "100" // 100 DAI
 
 const order = await kulapSDK.getRate(baseToken, pairToken, amountIn) // Get best rate from off-chain API
 
