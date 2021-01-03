@@ -14,7 +14,7 @@ The solidity `KULAPDex.sol` contract acts as a single endpoint of the system and
 
 ### Trade Execution
 
-```
+```js
 function trade(uint256 tradingProxyIndex, ERC20 src, uint256 srcAmount, ERC20 dest, uint256 minDestAmount, uint256 partnerIndex) → uint256
 ```
 
@@ -31,7 +31,7 @@ function trade(uint256 tradingProxyIndex, ERC20 src, uint256 srcAmount, ERC20 de
 
 If the source token is ERC20 token, the user is required to call approve function to give an allowance to the `KULAPDex.sol` contract stats at the top of the section.
 
-```
+```js
 ERC20token.approve( "0x3833cf2972394d636b1C5b80d34FeE1F17175b77" , srcAmount)
 ```
 
@@ -47,7 +47,7 @@ Smart Contract can emit events that can be listened by applications to be notifi
 
 Emitted when a trade is executed.
 
-```
+```js
 event Trade(address indexed srcAsset, uint256 srcAmount, address indexed destAsset, uint256 destAmount, address indexed trader, uint256 fee)
 ```
 
@@ -66,7 +66,7 @@ event Trade(address indexed srcAsset, uint256 srcAmount, address indexed destAss
 
 Emitted when the new trading proxy is registered to the system.
 
-```
+```js
 event AddedTradingProxy(address indexed addedBy, string name, IKULAPTradingProxy indexed proxyAddress, uint256 indexed index)
 ```
 
